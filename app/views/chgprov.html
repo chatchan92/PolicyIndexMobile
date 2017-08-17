@@ -1,0 +1,77 @@
+<div ng-controller="ChgprovCtrl">
+    <ol class="breadcrumb block" style="margin: 15px;">
+        <li><a href="#/">售电指数</a></li>
+        <li a href="#!/chgProv" class="active">省份及指数选择</li>
+    </ol>
+    <!-- Single button -->
+    <div class="btn-group col-xs-12">
+        <button type="button" class="btn btn-default btn-block dropdown-toggle block" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+          {{provName}} <span class="glyphicon glyphicon-triangle-bottom"></span> </button>
+        <ul class="dropdown-menu block">
+            <li><a>华南</a></li>
+            <li>
+                <ul class="list-inline" style="padding-left: 2rem; padding-right: 2rem;">
+                    <li><a ng-click="setProv('广东')">广东</a></li>
+                    <li><a ng-click="setProv('广西')">广西</a></li>
+                </ul>
+            </li>
+            <li><a>华东</a></li>
+            <li>
+                <ul class="list-inline" style="padding-left: 2rem; padding-right: 2rem;">
+                    <li><a ng-click="setProv('江西')">江西</a></li>
+                    <li><a ng-click="setProv('山东')">山东</a></li>
+                    <li><a ng-click="setProv('江苏')">江苏</a></li>
+                    <li><a ng-click="setProv('安徽')">安徽</a></li>
+                    <li><a ng-click="setProv('福建')">福建</a></li>
+                </ul>
+            </li>
+            <li><a>华中</a></li>
+            <li>
+                <ul class="list-inline" style="padding-left: 2rem; padding-right: 2rem;">
+                    <li><a ng-click="setProv('湖南')">湖南</a></li>
+                    <li><a ng-click="setProv('湖北')">湖北</a></li>
+                    <li><a ng-click="setProv('河南')">河南</a></li>
+                </ul>
+            </li>
+            <li><a>西南</a></li>
+            <li>
+                <ul class="list-inline" style="padding-left: 2rem; padding-right: 2rem;">
+                    <li><a ng-click="setProv('')">云南</a></li>
+                    <li><a ng-click="setProv('贵州')">贵州</a></li>
+                    <li><a ng-click="setProv('重庆')">重庆</a></li>
+                    <li><a ng-click="setProv('四川')">四川</a></li>
+                </ul>
+            </li>
+            <li><a>华北</a></li>
+            <li>
+                <ul class="list-inline" style="padding-left: 2rem; padding-right: 2rem;">
+                    <li><a ng-click="setProv('北京')">北京</a></li>
+                    <li><a ng-click="setProv('河北')">河北</a></li>
+                    <li><a ng-click="setProv('山西')">山西</a></li>
+                    <li><a ng-click="setProv('天津')">天津</a></li>
+                </ul>
+            </li>
+            <li><a>东北</a></li>
+        </ul>
+        <br>
+        <br>
+
+    </div>
+    <div class="btn-group col-xs-12">
+        <button type="button" class="btn btn-default btn-block dropdown-toggle block" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            {{indexToName(indexName);}} <span class="glyphicon glyphicon-triangle-bottom"></span></button>
+        <ul class="dropdown-menu block">
+            <li><a ng-click="setIndex('EntityActive')">主体活跃指数</a></li>
+            <li><a ng-click="setIndex('PolicyDev')">政策发展指数</a></li>
+            <li><a ng-click="setIndex('TradeDyn')">交易动态指数</a></li>
+        </ul>
+        <br>
+        <br>
+
+    </div>
+    <div class="col-xs-12">
+        <a type="button" href="#!/{{indexName}}" class="btn block btn-block btn-success ">查询</a>
+    </div>
+</div>
