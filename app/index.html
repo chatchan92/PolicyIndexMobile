@@ -39,10 +39,10 @@
             <ul class="nav navbar-nav ">
               <li><a href="#/" ng-click="setNav(0)">交能指数</a></li>
               <li><a ng-href="#!/chgProv" ng-click="setNav(0)">{{provName}} / 选择其他</a></li>
-              <li><a ng-href="#!/EntityActive" ng-click="setNav(0)">主体活跃</a></li>
-              <li><a ng-href="#!/TradeDyn" ng-click="setNav(0)">交易动态</a></li>
-              <li><a ng-href="#!/PolicyDev" ng-click="setNav(0)">政策发展</a></li>
-              <li><a ng-href="#!/unreleased" ng-click="setNav(0)">市场规模</a></li>
+              <li><a ng-href="#!/PolicyDev" ng-click="setIndex('PoliceDev'); setNav(0);">政策发展</a></li>
+              <li><a ng-href="#!/EntityAct" ng-click="setIndex('EntityAct'); setNav(0)">主体活跃</a></li>
+              <li><a ng-href="#!/TradeDyn" ng-click="setIndex('TradeDyn'); setNav(0)">交易动态</a></li>
+              <li><a ng-href="#!/unreleased" ng-click=" setNav(0)">市场规模</a></li>
               <li><a ng-href="#!/about" ng-click="setNav(0)">关于我们</a></li>
             </ul>
           </div>
@@ -96,7 +96,7 @@
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/about.js"></script>
     <script src="scripts/controllers/chgprov.js"></script>
-    <script src="scripts/controllers/entityactive.js"></script>
+    <script src="scripts/controllers/entityact.js"></script>
     <script src="scripts/controllers/tradedyn.js"></script>
     <script src="scripts/controllers/policydev.js"></script>
     <script src="scripts/controllers/unreleased.js"></script>

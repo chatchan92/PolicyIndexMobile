@@ -17,13 +17,13 @@ angular.module('policyindexMApp')
     $scope.setProv = function (provSelect) {
       $rootScope.provName = provSelect;
       console.log($rootScope.provName);
-    }
+    };
     $scope.setIndex = function (indexSelect) {
       $rootScope.indexName = indexSelect;
-    }
+    };
     $scope.indexToName = function (indexStr) {
       switch (indexStr) {
-        case 'EntityActive':
+        case 'EntityAct':
           return('主体活跃指数');
         case 'PolicyDev':
           return('政策发展指数');  
@@ -33,5 +33,5 @@ angular.module('policyindexMApp')
           return('主体活跃指数');    
       }
         
-    }
+    };
   });

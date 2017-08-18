@@ -32,12 +32,16 @@
     "karma-jasmine": "^1.1.0",
     "karma-phantomjs-launcher": "^1.0.4",
     "phantomjs-prebuilt": "^2.1.14",
-    "time-grunt": "^1.0.0"
+    "time-grunt": "^1.0.0",
+    "uglify-es": "github:mishoo/UglifyJS2#harmony"
   },
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
     "build": "node app/script/app.js"
+  },
+  "dependencies": {
+    "chart.js": "^2.6.0"
   }
 }

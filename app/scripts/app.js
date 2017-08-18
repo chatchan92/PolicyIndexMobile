@@ -20,20 +20,11 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .service("DataShareService", function() {
+  .service("DataShareService", function () {
     //无需定义其他变量，无需return，如果使用factory()则至少需要return一个空对象
-  }) 
-  .controller('IndexCtrl', function($rootScope, $scope, DataShareService) {
-    $scope.menuBtnCheck = true;
-    $rootScope.provName = '广东';
-    $rootScope.indexName = 'EntityActive';
-    $scope.setNav = function(index) {      
-      $scope.menuBtnCheck = (index == 1 ? 1 - $scope.menuBtnCheck : 1);
-    }
-   
-    
   })
   .config(function ($routeProvider) {
+    
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -50,10 +41,10 @@ angular
         controller: 'ChgprovCtrl',
         controllerAs: 'chgProv'
       })
-      .when('/EntityActive', {
-        templateUrl: 'views/entityactive.html',
-        controller: 'EntityactiveCtrl',
-        controllerAs: 'entityActive'
+      .when('/EntityAct', {
+        templateUrl: 'views/entityact.html',
+        controller: 'EntityactCtrl',
+        controllerAs: 'entityAct'
       })
       .when('/TradeDyn', {
         templateUrl: 'views/tradedyn.html',
@@ -73,5 +64,17 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+    
+
+  })
+  .controller('IndexCtrl', function ($rootScope, $scope, DataShareService) {
+    $scope.menuBtnCheck = true;
+    $rootScope.provName = '广东';
+    $rootScope.indexName = 'PolicyDev';
+    $scope.setNav = function (index) {
+      $scope.menuBtnCheck = (index == 1 ? 1 - $scope.menuBtnCheck : 1);
+    };
+
+
   });
-  
+

@@ -1,71 +1,94 @@
 'use strict';
+
 /**
  * @ngdoc function
- * @name policyindexMApp.controller:PolicydevCtrl
+ * @name policyindexMApp.controller:EntityactiveCtrl
  * @description
- * # PolicydevCtrl
+ * # EntityactiveCtrl
  * Controller of the policyindexMApp
  */
 angular.module('policyindexMApp')
-  .controller('PolicydevCtrl', function ($scope, $resource, $http, $rootScope) {
+  .controller('EntityactCtrl', function ($rootScope, $scope, $resource, $http, DataShareService) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
     function findRanking(data) {
-      return data.Index == $scope.indexValue;
+      return (data.Province).search($rootScope.provName) != -1;
     }
     //指数和排名部分
     $.getJSON("http://www.jiaonengwang.com/files/Policyindex/barquery.php?callback=?", {
-      "IndexType2PHP": 'PolicyDev'
+      "IndexType2PHP": 'EntityAct'
     }, function(data) {
       var i;
       for(i = 0; i < data.length; i++) {
-        if((data[i].Province).search($rootScope.provName) != -1) {
+        if ((data[i].Province).search($rootScope.provName) != -1) {
           //console.log(data[i].Province);
           $scope.$apply(function () {
             $scope.indexValue = data[i].Index;
-            
           });
           break;
         }
-        
       }
       $scope.$apply(function () {
         $scope.indexRanking = data.findIndex(findRanking) + 1;
-      }); 
-      //console.log($scope.indexValue, $scope.indexRanking);
+      });
 
     });
 
     // index developments
     $.getJSON("http://www.jiaonengwang.com/files/Policyindex/linequery.php?callback=?", {
       "ProvinceLine2PHP": $rootScope.provName,
-      "IndexType2PHP": 'PolicyDev'
+      "IndexType2PHP": 'EntityAct'
     }, function (data) {
       var xData = [], yData = [];
       var i;
-      for (i = 0; i< data.length; i++) {
+      for(i = 0; i < data.length; i++) {
         xData.push(data[i].date);
         yData.push(parseInt(data[i].value));
       }
       drawLine($scope, xData, yData);
     });
 
-    // news
+    //新闻部分
     $.getJSON("http://www.jiaonengwang.com/files/Policyindex/policyquery.php", {
       "ProvinceLine2PHP": $rootScope.provName,
-      "IndexType2PHP": 'PolicyDev'
+      "IndexType2PHP": 'EntityAct'
     }, function (datas) {
       if (datas == null) {
         return;
       } else {
-        $scope.news = datas.news.length > 2 ? datas.news.slice(0, 3) : null;
+        //$scope.news = datas.news.length > 2 ? datas.news : null;
         $scope.$apply(function () {
-          $scope.policies = datas.policy.length > 2 ? datas.policy.slice(0, 3) : null;
+          $scope.news = datas.news.length > 2 ? datas.news.slice(0, 3) : null;
         });
       }
+    });
+    //活跃主体部分
+    $.getJSON("http://www.jiaonengwang.com/files/Policyindex/tradequery.php", {
+      "ProvinceLine2PHP": $rootScope.provName,
+      "IndexType2PHP": 'EntityAct'
+    }, function (data_original) {
+      // 反解构JSON
+      var name_company = [];
+      var volume_company = [];
+      var id_company = [];
+      var total_volume = 0;
+      // 反解构JSON
+      var i;
+      for (i = 0; i < data_original.data_present.length; i++) {
+        total_volume += parseInt(data_original.data_present[i].value);
+      }
+
+      $scope.$apply(function () {
+        $scope.entity = {};
+        // 成交公司
+        $scope.entity.company = data_original.data_present;
+        // 活跃公司
+        $scope.entity.company_e = data_original.data_company_e;
+        $scope.entity.mainPercentage = parseInt(total_volume / parseInt(data_original.V_deal) * 100);
+      });
     });
   });
 
@@ -77,8 +100,7 @@ function drawLine($scope, xData, yData) {
       yMax = yData[i];
     }
   }
-  var yMin = 100; 
-  var item;
+  var yMin = 100;
   for (var i = 0; i < yData.length; i++) {
     if(yMin > yData[i]) {
       yMin = yData[i];
@@ -96,7 +118,6 @@ function drawLine($scope, xData, yData) {
     xAxis: {
       show: false,
       data: xData
-
     },
     yAxis: {
       show: false
