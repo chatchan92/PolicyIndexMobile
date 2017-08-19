@@ -25,24 +25,20 @@
       <div class="navbar navbar-fixed-top block-nav" role="navigation">
         <div class="container ">
           <div class="navbar-header">
-
+            <a class="navbar-brand" href="www.jiaonengwang.com"><p><strong>交能网</strong></p></a>
             <button type="button" class="navbar-toggle" ng-click="setNav(1)">
               <span class="sr-only">交能网</span>
               <span class="glyphicon glyphicon-align-justify" style="color: #f5f5f5; font-size: 18px;"></span>
             </button>
-
-            <a class="navbar-brand" href="www.jiaonengwang.com">交能网</a>
           </div>
-
           <div ng-class="(menuBtnCheck == 1) ? 'collapse navbar-collapse' : 'navbar-collapse'" >
-
             <ul class="nav navbar-nav ">
-              <li><a href="#/" ng-click="setNav(0)">交能指数</a></li>
-              <li><a ng-href="#!/chgProv" ng-click="setNav(0)">{{provName}} / 选择其他</a></li>
+              <li><h4 style="color: #ffffff; padding-left: 15px;"><strong>{{provName}} - 售电指数</strong> </h4></li>
               <li><a ng-href="#!/PolicyDev" ng-click="setIndex('PoliceDev'); setNav(0);">政策发展</a></li>
               <li><a ng-href="#!/EntityAct" ng-click="setIndex('EntityAct'); setNav(0)">主体活跃</a></li>
               <li><a ng-href="#!/TradeDyn" ng-click="setIndex('TradeDyn'); setNav(0)">交易动态</a></li>
               <li><a ng-href="#!/unreleased" ng-click=" setNav(0)">市场规模</a></li>
+              <li><a ng-href="#!/chgProv" ng-click="setNav(0)">其他省份</a></li>
               <li><a ng-href="#!/about" ng-click="setNav(0)">关于我们</a></li>
             </ul>
           </div>

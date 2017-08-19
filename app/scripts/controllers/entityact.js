@@ -89,7 +89,10 @@ angular.module('policyindexMApp')
         $scope.entity.company_e = data_original.data_company_e;
         $scope.entity.mainPercentage = parseInt(total_volume / parseInt(data_original.V_deal) * 100);
       });
-    });
+
+      // 画饼图
+      drawPie($scope);
+    });    
   });
 
 function drawLine($scope, xData, yData) {
@@ -139,4 +142,54 @@ function drawLine($scope, xData, yData) {
 
   // 使用刚指定的配置项和数据显示图表。
   myChart.setOption(option);
+}
+
+// 饼图函数
+function drawPie($scope) {
+  var pieChart = echarts.init(document.getElementById('entity-active-percentage-chart'));
+  var option = {
+    title: {
+      text: $scope.entity.mainPercentage + '%',
+      x: 'center',
+      y: 'center',
+      textStyle: {
+        color: '#0365a5',
+        fontSize: 24,
+      }
+    },
+    series: [
+      {
+        name: '访问来源',
+        type: 'pie',
+        radius: ['80%', '95%'],
+        hoverAnimation: false,
+        label: {
+            normal: {
+                show: false,
+            }
+        },
+        data: [
+          {
+            value: $scope.entity.mainPercentage,
+            name: 'main',
+            itemStyle: {
+              normal: {
+                color: '#0365a5'
+              }
+            }
+          },
+          {
+            value: 100 - $scope.entity.mainPercentage,
+            name: 'else',
+            itemStyle: {
+              normal: {
+                color: '#9e9e9e'
+              }
+            }
+          }
+        ]
+      }
+    ]
+  };
+  pieChart.setOption(option);
 }

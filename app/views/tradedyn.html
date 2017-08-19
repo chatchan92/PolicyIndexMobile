@@ -1,8 +1,31 @@
-<ol class="breadcrumb block">
-    <li><a href="#/">售电指数</a></li>
-    <li><a href="#!/chgProv">{{ provName }}</a></li>
-    <li class="active">交易动态指数</li>
-</ol>
-<div class="container block">
-    <p>这是交易动态页面</p>
+<script src="https://cdn.bootcss.com/echarts/3.6.2/echarts.min.js"></script>
+<div>
+    <ol class="breadcrumb block">
+        <li><a href="#/">售电指数</a></li>
+        <li><a href="#!/chgProv">{{ provName }}</a></li>
+        <li class="active">交易动态指数</li>
+    </ol>
+    <div class="block container">
+        <div class="col-xs-12">
+            <span class="subblock-title">本省概况</span>
+            <a href="#!/chgProv" class="subblock-link">其他省份</a>
+        </div>
+        <hr class="hr-less" style="color: #000000; width: 100%;"></hr>
+        <div class="col-xs-3" style="text-align: center;">
+            <h5>得分</h5>
+            <h3 style="color: #0365a5">{{indexValue}}</h3>
+        </div>
+        <div class="col-xs-3" style="text-align: center;">
+            <h5>排名</h5>
+            <h3 style="color: #0365a5">{{indexRanking}}</h3>
+        </div>
+        <div class="col-xs-6 text-center">
+            <h5>变化</h5>
+            <canvas id="index-chg-chart" width="100%" height="36px"></canvas>
+        </div>
+        <div class="col-xs-12">
+            </br>
+            <p>XX发展指数：全国各地区售电市场发展程度指示剂，满分100分，分数越高，说明该地区越适合XXXX</p>
+        </div>
+    </div>
 </div>
