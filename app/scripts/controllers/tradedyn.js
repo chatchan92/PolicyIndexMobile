@@ -21,7 +21,6 @@ angular.module('policyindexMApp')
     $.getJSON("http://www.jiaonengwang.com/files/Policyindex/barquery.php?callback=?", {
       "IndexType2PHP": 'TransDyn'
     }, function (data) {
-      console.log(data);
       var i;
       for (i = 0; i < data.length; i++) {
         if ((data[i].Province).search($rootScope.provName) != -1) {

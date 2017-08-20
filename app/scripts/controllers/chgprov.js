@@ -14,24 +14,16 @@ angular.module('policyindexMApp')
       'AngularJS',
       'Karma'
     ];
+    if($rootScope.indexName == 'nothing') {
+      $rootScope.indexName = 'EntityAct';
+    }
+    if($rootScope.provName == '省份') {
+      $rootScope.provName = '广东';
+    }
     $scope.setProv = function (provSelect) {
       $rootScope.provName = provSelect;
-      console.log($rootScope.provName);
+
     };
-    $scope.setIndex = function (indexSelect) {
-      $rootScope.indexName = indexSelect;
-    };
-    $scope.indexToName = function (indexStr) {
-      switch (indexStr) {
-        case 'EntityAct':
-          return('主体活跃指数');
-        case 'PolicyDev':
-          return('政策发展指数');  
-        case 'TradeDyn':
-          return('交易动态指数');
-        default:
-          return('主体活跃指数');    
-      }
-        
-    };
+    
+    
   });

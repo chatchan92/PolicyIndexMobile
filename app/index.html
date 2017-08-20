@@ -25,7 +25,12 @@
       <div class="navbar navbar-fixed-top block-nav" role="navigation">
         <div class="container ">
           <div class="navbar-header">
-            <a class="navbar-brand" href="www.jiaonengwang.com"><p><strong>交能网</strong></p></a>
+            <!-- <a class="navbar-brand" href="www.jiaonengwang.com"><p><strong>交能网</strong></p></a> -->
+            <div class="navbar-brand"  style="color: #ffffff; padding-left: 15px;">
+              <a ng-click="setNav(1)" style="color: #ffffff;"><strong>{{provName}}</strong></a>
+              &nbsp>&nbsp
+              <a ng-click="setNav(1)" style="color: #ffffff;"><strong>{{indexToName(indexName)}}<strong></a>
+            </div>
             <button type="button" class="navbar-toggle" ng-click="setNav(1)">
               <span class="sr-only">交能网</span>
               <span class="glyphicon glyphicon-align-justify" style="color: #f5f5f5; font-size: 18px;"></span>
@@ -33,12 +38,63 @@
           </div>
           <div ng-class="(menuBtnCheck == 1) ? 'collapse navbar-collapse' : 'navbar-collapse'" >
             <ul class="nav navbar-nav ">
-              <li><h4 style="color: #ffffff; padding-left: 15px;"><strong>{{provName}} - 售电指数</strong> </h4></li>
-              <li><a ng-href="#!/PolicyDev" ng-click="setIndex('PoliceDev'); setNav(0);">政策发展</a></li>
-              <li><a ng-href="#!/EntityAct" ng-click="setIndex('EntityAct'); setNav(0)">主体活跃</a></li>
-              <li><a ng-href="#!/TradeDyn" ng-click="setIndex('TradeDyn'); setNav(0)">交易动态</a></li>
-              <li><a ng-href="#!/unreleased" ng-click=" setNav(0)">市场规模</a></li>
-              <li><a ng-href="#!/chgProv" ng-click="setNav(0)">其他省份</a></li>
+              <li><a ng-href="#!/chgProv" ng-click="setNav(0)" style="padding-left: 15px; font-size:18px;"><strong>售电指数</strong> </a></li>
+              <li ng-if="(1)">
+                  <ul class="list-inline" style="padding-left: 15px; margin-bottom: 15px;">
+                      <li><a href="#!/{{indexName}}/{{provName}}" ng-click="setIndex('EntityAct'); setNav(0);"  >政策发展</a></li>
+                      <li><a href="#!/{{indexName}}/{{provName}}" ng-click="setIndex('PolicyDev'); setNav(0);"  >主体活跃</a></li>
+                      <li><a href="#!/{{indexName}}/{{provName}}" ng-click="setIndex('TradeDyn'); setNav(0);" > 交易动态</a></li>
+                      <li><a>市场发展</a></li>
+                  </ul>
+              </li>
+              <li ng-if="(1)">
+                  <ul class="list-unstyled" sytle="margin-left: 15px;">
+                      <li>
+                          <ul class="list-inline" style="padding-left: 15px; padding-right: 15px;">
+                              <li><p style="color:#f5f5f5">华南:</p></li>
+                              <li><a href="#!/{{indexName}}/{{provName}}" ng-click="setProv('广东'); setNav(0);">广东</a></li>
+                              <li><a href="#!/{{indexName}}/{{provName}}" ng-click="setProv('广西'); setNav(0);">广西</a></li>
+                          </ul>
+                      </li>
+                      <li>
+                          <ul class="list-inline" style="padding-left: 15px; padding-right: 15px;">
+                              <li><p style="color:#f5f5f5">华东:</p></li>
+                              <li><a href="#!/{{indexName}}/{{provName}}" ng-click="setProv('江西'); setNav(0);">江西</a></li>
+                              <li><a href="#!/{{indexName}}/{{provName}}" ng-click="setProv('山东'); setNav(0);">山东</a></li>
+                              <li><a href="#!/{{indexName}}/{{provName}}" ng-click="setProv('江苏'); setNav(0);">江苏</a></li>
+                              <li><a href="#!/{{indexName}}/{{provName}}" ng-click="setProv('安徽'); setNav(0);">安徽</a></li>
+                              <li><a href="#!/{{indexName}}/{{provName}}" ng-click="setProv('福建'); setNav(0);">福建</a></li>
+                          </ul>
+                      </li>
+                      <li>
+                          <ul class="list-inline" style="padding-left: 15px; padding-right: 15px;">
+                              <li><p style="color:#f5f5f5">华中:</p></li>
+                              <li><a href="#!/{{indexName}}/{{provName}}" ng-click="setProv('湖南'); setNav(0);">湖南</a></li>
+                              <li><a href="#!/{{indexName}}/{{provName}}" ng-click="setProv('湖北'); setNav(0);">湖北</a></li>
+                              <li><a href="#!/{{indexName}}/{{provName}}" ng-click="setProv('河南'); setNav(0);">河南</a></li>
+                          </ul>
+                      </li>
+                      <li>
+                          <ul class="list-inline" style="padding-left: 15px; padding-right: 15px;">
+                              <li><p style="color:#f5f5f5">西南:</p></li>
+                              <li><a href="#!/{{indexName}}/{{provName}}" ng-click="setProv('云南'); setNav(0);">云南</a></li>
+                              <li><a href="#!/{{indexName}}/{{provName}}" ng-click="setProv('贵州'); setNav(0);">贵州</a></li>
+                              <li><a href="#!/{{indexName}}/{{provName}}" ng-click="setProv('重庆'); setNav(0);">重庆</a></li>
+                              <li><a href="#!/{{indexName}}/{{provName}}" ng-click="setProv('四川'); setNav(0);">四川</a></li>
+                          </ul>
+                      </li>
+                      <li>
+                          <ul class="list-inline" style="padding-left: 15px; padding-right: 15px;">
+                              <li><p style="color:#f5f5f5">华北:</p></li>
+                              <li><a href="#!/{{indexName}}/{{provName}}" ng-click="setProv('北京'); setNav(0);">北京</a></li>
+                              <li><a href="#!/{{indexName}}/{{provName}}" ng-click="setProv('河北'); setNav(0);">河北</a></li>
+                              <li><a href="#!/{{indexName}}/{{provName}}" ng-click="setProv('山西'); setNav(0);">山西</a></li>
+                              <li><a href="#!/{{indexName}}/{{provName}}" ng-click="setProv('天津'); setNav(0);">天津</a></li>
+                          </ul>
+                      </li>
+                  </ul>
+              </li>
+              <li><a href="http://www.jiaonengwang.com/dailydemo.html" style="padding-left: 15px; font-size:18px;"><strong>售电日报</strong></a></li>
               <li><a ng-href="#!/about" ng-click="setNav(0)">关于我们</a></li>
             </ul>
           </div>
