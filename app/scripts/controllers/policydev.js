@@ -70,7 +70,7 @@ angular.module('policyindexMApp')
   });
 
 function drawLine($scope, xData, yData) {
-  var myChart = echarts.init(document.getElementById('index-chg-chart'));
+  var myChart = echarts.init(document.getElementById('index-chg-chart'), null, {devicePixelRatio: 1});
   var yMax = 0;
   for (var i = 0; i < yData.length; i++) {
     if(yMax < yData[i]) {

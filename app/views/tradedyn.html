@@ -16,11 +16,21 @@
         </div>
         <div class="col-xs-6 text-center">
             <h5>变化</h5>
-            <canvas id="index-chg-chart" width="100%" height="36px"></canvas>
+            <canvas id="index-chg-chart" width="200%" height="72px" style="width:100%; height:36px;"></canvas>
         </div>
         <div class="col-xs-12">
             </br>
             <p>XX发展指数：全国各地区售电市场发展程度指示剂，满分100分，分数越高，说明该地区越适合XXXX</p>
+        </div>
+    </div>
+    <div class="block container" ng-if="(showTradeRes == true)">
+        <div class="col-xs-12">
+            <span class="subblock-title">交易历史</span>
+            <a ng-click="(1)" class="subblock-link">详情</a>
+        </div>
+        <div class="row">
+            <canvas id="trade-res-price-chart" width="600" height="300" style="width: 100%; height: 150px;"></canvas>
+            <canvas id="trade-res-volume-chart" width="600" height="150" style="width: 100%; height: 75px;"></canvas>             
         </div>
     </div>
 </div>

@@ -42,6 +42,9 @@ angular.module('policyindexMApp')
       "ProvinceLine2PHP": $rootScope.provName,
       "IndexType2PHP": 'EntityAct'
     }, function (data) {
+      if(!data) {
+        return;
+      }
       var xData = [], yData = [];
       var i;
       for(i = 0; i < data.length; i++) {
@@ -91,12 +94,14 @@ angular.module('policyindexMApp')
       });
 
       // 画饼图
-      drawPie($scope);
+      if(parseInt(total_volume) > 0) {
+        drawPie($scope);
+      }
     });    
   });
 
 function drawLine($scope, xData, yData) {
-  var myChart = echarts.init(document.getElementById('index-chg-chart'));
+  var myChart = echarts.init(document.getElementById('index-chg-chart'), null, {devicePixelRatio: 1});
   var yMax = 0;
   for (var i = 0; i < yData.length; i++) {
     if(yMax < yData[i]) {
@@ -146,7 +151,7 @@ function drawLine($scope, xData, yData) {
 
 // 饼图函数
 function drawPie($scope) {
-  var pieChart = echarts.init(document.getElementById('entity-active-percentage-chart'));
+  var pieChart = echarts.init(document.getElementById('entity-active-percentage-chart'), null, {devicePixelRatio: 1});
   var option = {
     title: {
       text: $scope.entity.mainPercentage + '%',
@@ -154,7 +159,7 @@ function drawPie($scope) {
       y: 'center',
       textStyle: {
         color: '#0365a5',
-        fontSize: 24,
+        fontSize: 36
       }
     },
     series: [
