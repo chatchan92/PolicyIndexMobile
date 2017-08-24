@@ -30,7 +30,31 @@
         </div>
         <div class="row">
             <canvas id="trade-res-price-chart" width="600" height="300" style="width: 100%; height: 150px;"></canvas>
-            <canvas id="trade-res-volume-chart" width="600" height="150" style="width: 100%; height: 75px;"></canvas>             
+            <canvas id="trade-res-volume-chart" width="600" height="150" style="width: 100%; height: 75px;"></canvas>
+            <span class="text-left" style="float: left; padding-left: 30px;">{{chartAxisX.start}}</span>
+            <span class="text-right" style="float: right; padding-right: 30px;">{{chartAxisX.end}}</span>             
+        </div>
+        <hr class="hr-less" style="color: #000000; width: 100%;"></hr>
+        <div class="row">
+            <div style="float: left; width: 40%">
+                <p style="color: #0365a5; text-align:center">月度集中交易</p>
+                <h3 style="color: #0365a5; text-align:center">{{chartAxisX.end}}</h3>
+            </div>
+            <div style="float: right; width: 55%">
+                <br>
+                <p ng-if="(recentTradeRes.preisTrend == 'up')" style="color:darkred">
+                    <span class="glyphicon glyphicon-arrow-up"></span>&nbsp {{recentTradeRes.preis}}<small>&nbsp{{recentTradeRes.unit}}</small>
+                </p>
+                <p ng-if="(recentTradeRes.preisTrend == 'down')" style="color:darkgreen">
+                    <span class="glyphicon glyphicon-arrow-down"></span>&nbsp {{recentTradeRes.preis}}<small>&nbsp{{recentTradeRes.unit}}</small>
+                </p>
+                <p ng-if="(recentTradeRes.volumeTrend == 'up')" style="color:darkred">
+                    <span class="glyphicon glyphicon-arrow-up"></span>&nbsp {{recentTradeRes.volume}}<small>&nbsp万kWh</small>
+                </p>
+                <p ng-if="(recentTradeRes.volumeTrend == 'down')" style="color:darkgreen">
+                    <span class="glyphicon glyphicon-arrow-down"></span>&nbsp {{recentTradeRes.volume}}<small>&nbsp万kWh</small>
+                </p>
+            </div>
         </div>
     </div>
 </div>

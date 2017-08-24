@@ -83,12 +83,38 @@ angular.module('policyindexMApp')
           }
         )
         for (j = 0; j < data[i].value.length; j++) {
-          yData[j].push(parseInt(data[i].value[j]));
+          // short cut to calcurate avage
+          switch (j) {
+            case 1:
+              yData[j].push(parseFloat(data[i].value[1] + data[i].value[0]) / 2);
+              break;
+            case 4:
+              yData[j].push(parseFloat(data[i].value[3] + data[i].value[4]) / 2);
+              break;
+            default:
+            yData[j].push(parseFloat(data[i].value[j]));
+          }
         }
         //yData.push(parseFloat(data[i].value[2]));
       }
       drawMutilLine($scope, xData, yData, vData);
       drawBar($scope, xData, vData);
+      // summary of monthly trade results
+      $scope.$apply(function () {
+        $scope.chartAxisX = {
+          start: xData[0],
+          end: xData[xData.length - 1]
+        };
+        $scope.recentTradeRes = {
+          preis: yData[yData.length - 1][2],
+          volume: vData[vData.length - 1].value,
+          unit: (yData[yData.length - 1][2] > 0) ? '元/kWh' : '厘/kWh',
+          preisTrend: (yData[yData.length - 1][2] > yData[yData.length - 2][2])
+            ? "up" : "down",
+          volumeTrend: (vData[vData.length - 1].value > vData[vData.length - 2].value)
+            ? "up" : "down",
+        }
+      });
       
     }); 
   });
@@ -297,7 +323,10 @@ function drawBar($scope, xData, yData) {
       type: 'bar',
       barWidth: 40,
       data: yData
-    }]
+    }],
+    textStyle: {
+      fontSize: 20
+    }
   }
   // 使用刚指定的配置项和数据显示图表。
   myChart.setOption(option);
