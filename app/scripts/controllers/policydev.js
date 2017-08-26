@@ -13,6 +13,7 @@ angular.module('policyindexMApp')
       'AngularJS',
       'Karma'
     ];
+    $scope.productOverlook = 0;
     function findRanking(data) {
       return data.Index == $scope.indexValue;
     }
@@ -67,6 +68,10 @@ angular.module('policyindexMApp')
         });
       }
     });
+
+    $scope.showProductOverlook = function(i) {
+      $scope.productOverlook = 1 - $scope.productOverlook;
+    };
   });
 
 function drawLine($scope, xData, yData) {

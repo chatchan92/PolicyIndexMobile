@@ -70,7 +70,7 @@ angular.module('policyindexMApp')
         });
       }
       var xData = [], yData = [[], [], [], [], []], i, j, vData = [];
-      for (i = data.length - 1; i >= 0; i--) {
+      for (i = data.length - 1; i >= 0; --i) {
         xData.push(strToMonth(data[i].date));
         vData.push(
           {
@@ -91,8 +91,11 @@ angular.module('policyindexMApp')
             case 4:
               yData[j].push(parseFloat(data[i].value[3] + data[i].value[4]) / 2);
               break;
+            case 2:
+              yData[j].push(parseFloat(data[i].value[2]));
+              break;  
             default:
-            yData[j].push(parseFloat(data[i].value[j]));
+              yData[j].push(parseFloat(data[i].value[j]));
           }
         }
         //yData.push(parseFloat(data[i].value[2]));
@@ -100,16 +103,17 @@ angular.module('policyindexMApp')
       drawMutilLine($scope, xData, yData, vData);
       drawBar($scope, xData, vData);
       // summary of monthly trade results
+      console.log(parseFloat(yData[2][yData[2].length - 1]) - parseFloat(yData[2][yData[2].length - 2]));
       $scope.$apply(function () {
         $scope.chartAxisX = {
           start: xData[0],
           end: xData[xData.length - 1]
         };
         $scope.recentTradeRes = {
-          preis: yData[yData.length - 1][2],
+          preis: yData[2][yData[2].length - 1],
           volume: vData[vData.length - 1].value,
-          unit: (yData[yData.length - 1][2] > 0) ? '元/kWh' : '厘/kWh',
-          preisTrend: (yData[yData.length - 1][2] > yData[yData.length - 2][2])
+          unit: (yData[2][yData[2].length - 1] > 0) ? '元/kWh' : '厘/kWh',
+          preisTrend: (parseFloat(yData[2][yData.length - 1]) > parseFloat(yData[2][yData.length - 2]))
             ? "up" : "down",
           volumeTrend: (vData[vData.length - 1].value > vData[vData.length - 2].value)
             ? "up" : "down",
@@ -188,6 +192,7 @@ function drawMutilLine($scope, xData, yData, vData) {
       yMin = yData[3][i];
     }
   }
+  //console.log(yMax, yMin);
   // 指定图表的配置项和数据
   var option = {
     tooltip: {},
