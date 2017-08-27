@@ -14,4 +14,6 @@ angular.module('policyindexMApp')
       'AngularJS',
       'Karma'
     ];
+    $rootScope.indexName = "nothing"; 
+    $rootScope.provName = '关于我们';
   });

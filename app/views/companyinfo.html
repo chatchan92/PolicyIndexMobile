@@ -1,0 +1,61 @@
+<div style="padding-top: 0px; ">
+    <div class="col-xs-12 block" style="margin-bottom: 0; min-height: 100px;  background-image: linear-gradient(180deg, #0365a5, #239bcf);">
+        <p style=" margin-top: 10px; width: 65%; float: left; padding-left: 15px;  color:#f5f5f5; line-height: 1.4; font-size: 18px;">
+            <strong>{{ corpName}}<strong>
+            </p>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 48 60"
+            style=" width: 30%; float: right; padding-top: 10px; padding-right: 1rem; fill: #f5f5f5;" xml:space="preserve">
+            <g>
+                <path d="M38.2,5c0.8-0.6,1.9-0.3,2.5,0.5C41,5.9,41.6,6,42.1,5.7c0.5-0.3,0.6-0.9,0.3-1.4c-1.2-1.7-3.5-2.2-5.2-1   c-0.8,0.6-1.9,0.3-2.5-0.5c-0.3-0.5-0.9-0.6-1.4-0.3c-0.5,0.3-0.6,0.9-0.3,1.4C34.1,5.7,36.5,6.1,38.2,5z"
+                />
+                <path d="M27.1,3.3C27.9,2.8,29,3,29.6,3.8c0.3,0.5,0.9,0.6,1.4,0.3c0.5-0.3,0.6-0.9,0.3-1.4c-1.2-1.7-3.5-2.2-5.2-1   c-0.8,0.6-1.9,0.3-2.5-0.5c-0.3-0.5-0.9-0.6-1.4-0.3c-0.5,0.3-0.6,0.9-0.3,1.4C23,4.1,25.4,4.5,27.1,3.3z"
+                />
+                <path d="M47,20.3h-1.5l-1-11.7h0.3c0.6,0,1-0.4,1-1s-0.4-1-1-1c-3.7,0-2.9,0-6.6,0c-0.6,0-1,0.4-1,1s0.4,1,1,1h0.3l-1,11.7h-10V7.1   c0-0.5-0.3-0.9-0.8-1L1.2,0C0.6-0.1,0,0.4,0,1v46c0,0.6,0.4,1,1,1c10.9,0,19.2,0,29.8,0c0.6,0,1-0.4,1-1v-4.3h9.9V47   c0,0.6,0.4,1,1,1H47c0.6,0,1-0.4,1-1V21.3C48,20.8,47.6,20.3,47,20.3z M42.5,8.6l1,11.7h-3.9l1-11.7H42.5z M2,2.3l23.6,5.6   c0,14.3,0,23.8,0,38.1H2V2.3z M46,46h-2.3v-4.3c0-0.6-0.4-1-1-1H30.8c-0.6,0-1,0.4-1,1V46h-2.2V22.3H46V46z"
+                />
+                <path d="M16.4,9.1H7.1c-0.6,0-1,0.4-1,1v13.5c0,0.6,0.4,1,1,1h9.3c0.6,0,1-0.4,1-1V10.1C17.4,9.6,17,9.1,16.4,9.1z M15.4,22.6H8.1   V11.1h7.3V22.6z"
+                />
+                <path d="M16.4,28.4H7.1c-0.6,0-1,0.4-1,1v13.5c0,0.6,0.4,1,1,1h9.3c0.6,0,1-0.4,1-1V29.4C17.4,28.9,17,28.4,16.4,28.4z M15.4,41.9   H8.1V30.4h7.3V41.9z"
+                />
+                <path d="M30.8,37.4h12c0.6,0,1-0.4,1-1v-4.5c0-0.6-0.4-1-1-1h-12c-0.6,0-1,0.4-1,1v4.5C29.8,36.9,30.2,37.4,30.8,37.4z M31.8,32.9   h10v2.5h-10V32.9z"
+                />
+                <path d="M32.5,28.4c0.6,0,1-0.4,1-1V25c0-0.6-0.4-1-1-1s-1,0.4-1,1v2.4C31.5,28,32,28.4,32.5,28.4z" />
+                <path d="M36.8,28.4c0.6,0,1-0.4,1-1V25c0-0.6-0.4-1-1-1s-1,0.4-1,1v2.4C35.8,28,36.2,28.4,36.8,28.4z" />
+                <path d="M41,28.4c0.6,0,1-0.4,1-1V25c0-0.6-0.4-1-1-1s-1,0.4-1,1v2.4C40,28,40.5,28.4,41,28.4z" />
+            </g>
+        </svg>
+    </div>
+    <div class="col-xs-12 block" style="min-height: 125px; padding-top: 15px; margin-top: 0; color:  #848484;">
+        <p ng-if="corp_tel"><span class="glyphicon glyphicon-phone-alt"></span>&nbsp;&nbsp;{{ corp_tel }}</p>
+        <p ng-if="corp_phone"><span class="glyphicon glyphicon-phone"></span>&nbsp;&nbsp;{{ corp_phone }}</p>
+        <p ng-if="corp_email"><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;{{ corp_email }}</p>
+        <p ng-if="corp_web">
+        <span class="glyphicon glyphicon-globe"></span>&nbsp;&nbsp;{{ corp_web }}
+        </p>
+        <p ng-if="corp_fond">
+            <span class="glyphicon glyphicon-credit-card"></span>&nbsp;&nbsp;<strong>公司注册资金:</strong>&nbsp;{{ corp_fond }}
+        </p>
+        <p ng-if="corp_creat_time">
+            <span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;<strong>公司成立时间:</strong>&nbsp;{{ corp_creat_time
+                }}
+        </p>
+        <p><span class="glyphicon glyphicon-wrench"></span>&nbsp;&nbsp;<strong>业务范围: </strong></p>
+        <p style="padding-left:20px;">{{ business_range }}</br>
+        </p>
+        <div ng-if="trade.show">
+            <span class="glyphicon glyphicon-transfer"></span>&nbsp;&nbsp;
+            <strong>最近交易信息</strong></br>
+            </br>
+            <div class="">
+                <div class="col-xs-5 text-center">
+                    <p style="color: #0365a5;">{{ trade.date }}</p>
+                    <p>{{ trade.type }}</p>
+                </div>
+                <div class="col-xs-7">
+                    <p>{{ trade.volume }}<small>万Kwh</small></p>
+                    <p>{{ trade.preis }}<small>{{trade.preis_unit}}</small>
+                    </p>
+                </div>
+            </table>
+        </div>
+    </div>
+</div>

@@ -14,6 +14,8 @@ angular.module('policyindexMApp')
       'AngularJS',
       'Karma'
     ];
+    $rootScope.provName = '省份';
+    $rootScope.indexName = 'nothing'
     if($rootScope.indexName == 'nothing') {
       $rootScope.indexName = 'EntityAct';
     }

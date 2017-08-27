@@ -50,7 +50,7 @@
                 <li ng-repeat=" item in entity.company">
                     <p style="font-weight: 600;">{{item['name']}}</p>
                     <small>电量：</small>{{item.value}}<small>万千瓦时&nbsp&nbsp&nbsp</small>
-                    <a href="http://www.jiaonengwang.com/Companyinfo.html?ID={{item.id}}">详情</a>
+                    <a href="#!/companyinfo/{{item.id}}" target="_blank">详情</a>
                     <hr class="hr-less" style="color: #000000; width: 100%;"></hr>
                 </li>
             </ul>
@@ -60,7 +60,7 @@
                     <li ng-repeat=" item in entity.company_e">
                         <ul class="list-inline">
                             <li><p style="font-weight: 600;">{{item.name}}</p></li>
-                            <li><a href="http://www.jiaonengwang.com/Companyinfo.html?ID={{item.id}}">详情</a></li>
+                            <li><a href="#!/companyinfo/{{item.id}}" target="_blank">详情</a></li>
                         </ul>
                         <hr class="hr-less" style="color: #000000; width: 100%;"></hr>
                     </li>

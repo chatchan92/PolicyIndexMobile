@@ -8,10 +8,13 @@
  * Controller of the policyindexMApp
  */
 angular.module('policyindexMApp')
-  .controller('UnreleasedCtrl', function () {
+  .controller('NotfoundCtrl', function ($rootScope, $scope) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+
+    $rootScope.indexName = "notfound";  
+
   });

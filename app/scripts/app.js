@@ -61,10 +61,16 @@ angular
         controller: 'PolicydevCtrl',
         controllerAs: 'policyDev'
       })
-      .when('/unreleased', {
-        templateUrl: 'views/unreleased.html',
-        controller: 'UnreleasedCtrl',
-        controllerAs: 'unreleased'
+      .when('/notfound', {
+        templateUrl: 'views/notfound.html',
+        controller: 'NotfoundCtrl',
+        controllerAs: 'notfound'
+      })
+      
+      .when('/companyinfo/:id', {
+        templateUrl: 'views/companyinfo.html',
+        controller: 'CompanyinfoCtrl',
+        controllerAs: 'companyinfo'
       })
       .otherwise({
         redirectTo: '/'
@@ -74,7 +80,7 @@ angular
   })
   .controller('IndexCtrl', function ($rootScope, $scope, DataShareService) {
     $scope.menuBtnCheck = true;
-    $rootScope.provName = '省份';
+    $rootScope.provName = '交能网';
     $rootScope.indexName = 'nothing';
     $scope.setNav = function (index) {
       $scope.menuBtnCheck = (index == 1 ? 1 - $scope.menuBtnCheck : 1);
@@ -89,13 +95,17 @@ angular
           return('交易动态');
         case 'MarktDev':
           return('主体活跃');
+        case 'notfound':
+          return('出错了TAT');
+        case 'companyPlatform':
+          return('详情');    
         default:
-          return('交能售电指数');     
+          return('欢迎');     
       }
         
     };
     $rootScope.setIndex = function (indexSelect) {
-      if($rootScope.provName == '省份') {
+      if($rootScope.provName == '交能网') {
         $rootScope.provName = '广东';
       }
       console.log(indexSelect);
